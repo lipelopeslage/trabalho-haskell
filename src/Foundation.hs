@@ -35,14 +35,13 @@ instance YesodPersist Sitio where
 instance Yesod Sitio where
     authRoute _ = Just $ LoginR
     isAuthorized LoginR _ = return Authorized
-    isAuthorized _ _ = isAdmin
+    isAuthorized _ _ = isUser
 
-isAdmin = do
+isUser = do
     mu <- lookupSession "_ID"
     return $ case mu of
         Nothing -> AuthenticationRequired
-        Just "admin" -> Authorized
-        Just _ -> Unauthorized "You must be an admin"
+        Just _ -> Authorized
 
 type Form a = Html -> MForm Handler (FormResult a, Widget)
 
