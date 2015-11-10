@@ -45,7 +45,7 @@ getWelcomeR = do
 getLoginR :: Handler Html
 getLoginR = do
     (wid,enc) <- generateFormPost formUsu
-    defaultLayout $ widgetForm UsuarioR enc wid "" "Log in"
+    defaultLayout $ widgetForm LoginR enc wid "" "Log in"
 
 postLoginR :: Handler Html
 postLoginR = do
@@ -56,9 +56,10 @@ postLoginR = do
             case usuario of
                 Just (Entity uid usr) -> do
                     setSession "_ID" (usuarioNome usr)
+                    redirect WelcomeR
                 Nothing -> do
                     setMessage $ [shamlet| Invalid user |]
-                    redirect UsuarioR 
+                    redirect LoginR 
             redirect UsuarioR
         _ -> redirect UsuarioR
 
