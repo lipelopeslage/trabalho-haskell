@@ -32,7 +32,9 @@ getUsuarioR = do
     defaultLayout $ widgetForm UsuarioR enc wid "Cadastro de Usuarios" "Cadastrar"
 
 getImgR :: Handler Html
-getImgR = defaultLayout [whamlet| <img src=@{StaticR empolgou_jpg}> |]
+getImgR = defaultLayout [whamlet| 
+    <img src=@{StaticR empolgou_jpg}> 
+|]
 
 getWelcomeR :: Handler Html
 getWelcomeR = do
@@ -60,8 +62,7 @@ postLoginR = do
                 Nothing -> do
                     setMessage $ [shamlet| Invalid user |]
                     redirect LoginR 
-            redirect UsuarioR
-        _ -> redirect UsuarioR
+        _ -> redirect LoginR
 
 postUsuarioR :: Handler Html
 postUsuarioR = do
