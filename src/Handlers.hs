@@ -4,6 +4,7 @@
 module Handlers where
 import Import
 import Yesod
+import Yesod.Static
 import Foundation
 import Control.Monad.Logger (runStdoutLoggingT)
 import Control.Applicative
@@ -29,6 +30,9 @@ getUsuarioR :: Handler Html
 getUsuarioR = do
     (wid,enc) <- generateFormPost formUsu
     defaultLayout $ widgetForm UsuarioR enc wid "Cadastro de Usuarios" "Cadastrar"
+
+getImgR :: Handler Html
+getImgR = defaultLayout [whamlet| <img src=@{StaticR empolgou_jpg}> |]
 
 getLoginR :: Handler Html
 getLoginR = do
@@ -58,4 +62,5 @@ connStr = "dbname=dd9en8l5q4hh2a host=ec2-107-21-219-201.compute-1.amazonaws.com
 main::IO()
 main = runStdoutLoggingT $ withPostgresqlPool connStr 10 $ \pool -> liftIO $ do 
        runSqlPersistMPool (runMigration migrateAll) pool
-       warpEnv (Sitio pool)
+       s <- static "."
+       warpEnv (Sitio pool s)
