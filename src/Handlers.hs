@@ -34,13 +34,33 @@ getUsuarioR = do
 getImgR :: Handler Html
 getImgR = defaultLayout [whamlet| <img src=@{StaticR empolgou_jpg}> |]
 
+getWelcomeR :: Handler Html
+getWelcomeR = do
+     usr <- lookupSession "_ID"
+     defaultLayout [whamlet| 
+        $maybe m <- usr
+            <h1> Welcome #{m} 
+     |]
+
 getLoginR :: Handler Html
 getLoginR = do
     (wid,enc) <- generateFormPost formUsu
     defaultLayout $ widgetForm UsuarioR enc wid "" "Log in"
 
 postLoginR :: Handler Html
-postLoginR = undefined
+postLoginR = do
+    ((result,_),_) <- runFormPost formUsu
+    case result of
+        FormSuccess usr -> do
+            usuario <- runDB $ selectFirst [UsuarioNome ==. usuarioNome usr, UsuarioPass ==. usuarioPass usr ] []
+            case usuario of
+                Just (Entity uid usr) -> do
+                    setSession "_ID" (usuarioNome usr)
+                Nothing -> do
+                    setMessage $ [shamlet| Invalid user |]
+                    redirect UsuarioR 
+            redirect UsuarioR
+        _ -> redirect UsuarioR
 
 postUsuarioR :: Handler Html
 postUsuarioR = do
