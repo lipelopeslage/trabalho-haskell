@@ -10,6 +10,6 @@ pRoutes = [parseRoutes|
    /static StaticR Static getStatic
    /ima ImgR GET
    /login LoginR GET POST
-   /welcome WelcomeR GET
+   / WelcomeR GET
    /bye ByeR GET
 |]
