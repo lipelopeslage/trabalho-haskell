@@ -37,9 +37,9 @@ getImgR = defaultLayout [whamlet| <img src=@{StaticR empolgou_jpg}> |]
 getWelcomeR :: Handler Html
 getWelcomeR = do
      usr <- lookupSession "_ID"
-     defaultLayout [whamlet| 
+     defaultLayout [whamlet|
         $maybe m <- usr
-            <h1> Welcome #{m} 
+            <h1> Welcome #{m}
      |]
 
 getLoginR :: Handler Html
@@ -76,6 +76,11 @@ getListUserR :: Handler Html
 getListUserR = do
     listaU <- runDB $ selectList [] [Asc UsuarioNome]
     defaultLayout $(whamletFile "list.hamlet")
+
+getByeR :: Handler Html
+getByeR = do
+    deleteSession "_ID"
+    defaultLayout [whamlet| BYE! |]
 
 connStr = "dbname=dd9en8l5q4hh2a host=ec2-107-21-219-201.compute-1.amazonaws.com user=kpuwtbqndoeyqb password=aCROh525uugAWF1l7kahlNN3E0 port=5432"
 
