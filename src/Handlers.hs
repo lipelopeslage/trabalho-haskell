@@ -84,6 +84,9 @@ getByeR = do
     deleteSession "_ID"
     defaultLayout [whamlet| BYE! |]
 
+getAdminR :: Handler Html
+getAdminR = defaultLayout [whamlet| <h1> Bem-vindo ADMIN!! |]
+
 connStr = "dbname=dd9en8l5q4hh2a host=ec2-107-21-219-201.compute-1.amazonaws.com user=kpuwtbqndoeyqb password=aCROh525uugAWF1l7kahlNN3E0 port=5432"
 
 main::IO()

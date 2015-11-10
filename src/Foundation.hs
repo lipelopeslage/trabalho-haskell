@@ -35,7 +35,15 @@ instance YesodPersist Sitio where
 instance Yesod Sitio where
     authRoute _ = Just $ LoginR
     isAuthorized LoginR _ = return Authorized
+    isAuthorized AdminR _ = isAdmin
     isAuthorized _ _ = isUser
+
+isAdmin = do
+    mu <- lookupSession "_ID"
+    return $ case mu of
+        Nothing -> AuthenticationRequired
+        Just "admin" -> Authorized
+        Just _ -> Unauthorized "Soh o admin acessa aqui!"
 
 isUser = do
     mu <- lookupSession "_ID"
