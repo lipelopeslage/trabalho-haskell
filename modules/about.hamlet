@@ -1,0 +1,26 @@
+<div class="container">
+     <h1>Sobre
+     <div class="well">
+          Ferramenta de Administração de conteúdo para o Aplicativo de Horários Fatec Rubens Lara.
+     <ul class="nav nav-tabs">
+      <li class="">
+          <a aria-expanded="false" href="#felipe" data-toggle="tab">Felipe
+      <li class="active">
+          <a aria-expanded="true" href="#flavia" data-toggle="tab">Flávia
+
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade" id="felipe">
+        <h3>Felipe Lopes Lage
+        <div class="well">
+            <div class="container"> 
+                <p class="text-center col-md-3">
+                   <img class="about-thumb img-responsive" src="@{StaticR assets_images_felipe_jpg}">
+                <p class="col-md-9">Aluno de Sistemas para Internet, gosta de pensar que é magro e tem cabelo comprido.
+
+      <div class="tab-pane fade active in" id="flavia">
+        <h3>Flávia Souza
+        <div class="well">
+            <div class="container">
+                <p class="text-center col-md-3">
+                   <img class="about-thumb img-responsive" src="@{StaticR assets_images_flavia_jpg}">
+                <p class="col-md-9">Aluna de Sistemas para internet, tímida e magrela.

@@ -1,0 +1,7 @@
+<div class="bg" data-img-first="@{StaticR assets_images_bg_jpg}" data-img-second="@{StaticR assets_images_bg2_jpg}" data-img-third="@{StaticR assets_images_bg3_jpg}">
+<div class="home container-fluid">
+    <div class="container">
+        <h1 class="login">Horários - Fatec Rubens Lara
+        <div class="jumbotron">
+            $maybe m <- usr
+                 <h3> Bem vindo(a), #{m}. <a class="small pull-right" href="@{LogoutR}">SAIR

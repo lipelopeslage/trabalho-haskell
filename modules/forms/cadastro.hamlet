@@ -1,0 +1,8 @@
+<div class="container"> 
+    <div class="col-md-8 col-md-offset-2">
+        <h1>#{y}
+        <div class="well">
+            <form method=post action=@{x} enctype=#{enctype} class="container form-horizontal">
+                ^{widget}
+                <div class="form-group text-right">
+                    <input type="submit" class="btn-primary btn" value=#{val}>

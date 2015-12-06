@@ -21,6 +21,23 @@ Usuario
    pass Text
    deriving Show
 
+Curso
+   nome Text
+   sigla Text
+   descricao Text
+   deriving Show
+   
+Materia
+   nome Text
+   codigo Text
+   descricao Text
+   deriving Show
+
+Professor
+   nome Text
+   descricao Text
+   deriving Show
+
 |]
 
 mkYesodData "Sitio" pRoutes
@@ -35,6 +52,10 @@ instance YesodPersist Sitio where
 instance Yesod Sitio where
     authRoute _ = Just $ LoginR
     isAuthorized LoginR _ = return Authorized
+    isAuthorized SobreR _ = return Authorized
+    isAuthorized CursosR _ = return Authorized
+    isAuthorized ProfessoresR _ = return Authorized
+    isAuthorized MateriasR _ = return Authorized
     isAuthorized AdminR _ = isAdmin
     isAuthorized _ _ = isUser
 

@@ -1,0 +1,14 @@
+<div class="container">
+    <h1> Cursos cadastrados:
+        <div class="pull-right small nav-pills">
+          <a href="@{CursoR}" class="small">Inserir 
+                 <span class="badge">+
+    
+    <ul class="list-group">
+        $forall Entity pid curso <- cursos
+            <li class="list-group-item" role="button" data-toggle="collapse" href="##{cursoSigla curso}" aria-expanded="false" aria-controls="#{cursoSigla curso}">
+                <h5>#{cursoNome curso}&nbsp;
+                    <span class="label label-default">#{cursoSigla curso}
+                <div id="#{cursoSigla curso}" class="collapse">
+                     <p class="well well-sm">#{cursoDescricao curso}
+

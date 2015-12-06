@@ -1,0 +1,46 @@
+<div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand">Horários - Fatec Rubens Lara
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar">
+            <span class="icon-bar">
+            <span class="icon-bar">
+
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Professores <span class="caret">
+              <ul class="dropdown-menu" aria-labelledby="themes">
+                <li>
+                    <a href="@{ProfessoresR}">Todos os professores
+                <li class="divider">
+                <li>
+                    <a href="@{ProfessorR}">Cadastrar um professor
+
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Cursos 
+                 <span class="caret">
+              <ul class="dropdown-menu" aria-labelledby="download">
+                <li>
+                    <a href="@{CursosR}">Todos os cursos
+                <li class="divider">
+                <li>
+                    <a href="@{CursoR}">Cadastrar um curso
+
+           <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Matérias 
+                 <span class="caret">
+              <ul class="dropdown-menu" aria-labelledby="download">
+                <li>
+                    <a href="@{MateriasR}">Todas as matérias
+                <li class="divider">
+                <li>
+                    <a href="@{MateriaR}">Cadastrar uma matéria
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="@{SobreR}">Sobre
+
+

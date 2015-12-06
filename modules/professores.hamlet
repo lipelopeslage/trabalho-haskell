@@ -1,0 +1,13 @@
+<div class="container">
+    <h1> Professores cadastrados:
+        <div class="pull-right small nav-pills">
+          <a href="@{CursoR}" class="small">Inserir 
+                 <span class="badge">+
+    
+    <ul class="list-group">
+        $forall Entity pid prof <- professores
+            <li class="list-group-item" role="button" data-toggle="collapse" href="##{fromSqlKey pid}" aria-expanded="false" aria-controls="#{fromSqlKey pid}">
+                <h5>#{professorNome prof}&nbsp;
+                <div id="#{fromSqlKey pid}" class="collapse">
+                     <p class="well well-sm">#{professorDescricao prof}
+

@@ -1,0 +1,53 @@
+function normalizeForms(callback){
+    var forms = $("form"),
+    groups = forms.find("div.required").addClass("form-group"),
+    labels = groups.find("label").addClass("control-label"),
+    fields = groups.find("input,textarea").addClass("form-control");
+    callback.call();
+}
+
+function initResizer(){
+    var win = $(window), body = $("body"), footer = $("footer.foot"), bg = $(".bg");
+    function handler(){
+        if(body.innerHeight() < win.height() - 50){
+            footer.addClass("fix");
+        }else{
+            footer.removeClass("fix");
+        }
+        bg.height($(document).height());
+    }
+    win.resize(handler).trigger("resize");
+}
+
+function buildSlideshow(){
+    var bg = $(".bg"), bgs = [bg.attr("data-img-first"), bg.attr("data-img-second"), bg.attr("data-img-third")], c = 1;
+    function switchBg(){
+        console.log('switch', c);
+        $(".bg").fadeOut(function(){
+            $(this).css("background-image", "url("+bgs[c]+")")
+            .fadeIn(function(){
+                c = (c == 2) ? 0 : c+1;
+                setTimeout(switchBg, 5000);    
+            });
+            
+        });
+    }
+    setTimeout(switchBg, 5000);
+}
+
+function checkHome(){
+    if($(".home.container-fluid").length){
+        $("body").addClass("home");
+        buildSlideshow();
+    }
+}
+
+
+$(function(){
+    checkHome();
+    normalizeForms(function(){
+        $("body").css("visibility","visible");
+    });
+    initResizer();
+    console.log('iniciado');
+});

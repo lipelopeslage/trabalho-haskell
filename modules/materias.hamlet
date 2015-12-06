@@ -1,0 +1,14 @@
+<div class="container">
+    <h1> Matérias cadastradas:
+        <div class="pull-right small nav-pills">
+          <a href="@{MateriaR}" class="small">Inserir 
+                 <span class="badge">+
+
+    <ul class="list-group">
+        $forall Entity pid materia <- materias
+            <li class="list-group-item" role="button" data-toggle="collapse" href="##{materiaCodigo materia}" aria-expanded="false" aria-controls="#{materiaCodigo materia}">
+                <h5>#{materiaNome materia}&nbsp;
+                    <span class="label label-default">#{materiaCodigo materia}
+                <div id="#{materiaCodigo materia}" class="collapse">
+                     <p class="well well-sm">#{materiaDescricao materia}
+        

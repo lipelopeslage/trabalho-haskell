@@ -1,0 +1,16 @@
+<div class="bg" data-img-first="@{StaticR assets_images_bg_jpg}" data-img-second="@{StaticR assets_images_bg2_jpg}" data-img-third="@{StaticR assets_images_bg3_jpg}">
+<div class="home container-fluid">
+    <div class="container">
+        <h1 class="login">Horários - Fatec Rubens Lara
+        <div class="jumbotron">
+            <form method=post action=@{x} enctype=#{enctype} class="container form-horizontal">
+                ^{widget}
+                <div class="form-group">
+                    <input type="submit" class="btn-primary btn" value=#{val}>
+            <code>
+                 Login: 
+                     <kbd>
+                          admin
+                 Senha: 
+                     <kbd>
+                          admin123
