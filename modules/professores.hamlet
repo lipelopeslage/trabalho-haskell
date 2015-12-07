@@ -1,7 +1,7 @@
 <div class="container">
     <h1> Professores cadastrados:
         <div class="pull-right small nav-pills">
-          <a href="@{CursoR}" class="small">Inserir 
+          <a href="@{ProfessorR}" class="small">Inserir 
                  <span class="badge">+
     
     <ul class="list-group">
